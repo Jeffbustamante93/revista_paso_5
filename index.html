@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revista Digital - Familia López</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Portada */
+        .portada {
+            background: linear-gradient(135deg, #0073e6, #00bfff);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .portada h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .portada p {
+            font-size: 1.2rem;
+            margin: 10px 0 0;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Contenido principal */
+        .contenido {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .articulo {
+            background: white;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .articulo:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .articulo h2 {
+            font-size: 1.5rem;
+            color: #0073e6;
+            margin-bottom: 10px;
+        }
+
+        .articulo p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .articulo button {
+            background-color: #ffcc00;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .articulo button:hover {
+            background-color: #e6b800;
+        }
+
+        /* Modales */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-contenido {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            position: relative;
+            animation: slideIn 0.5s ease-in-out;
+            max-height: 80vh;
+            overflow-y: auto;
+            column-count: 2; /* Añadido: Divide el contenido en dos columnas */
+            column-gap: 40px; /* Añadido: Espacio entre columnas */
+            line-height: 1.6; /* Añadido: Mejora la legibilidad */
+        }
+
+        .modal-contenido h2 {
+            column-span: all; /* Añadido: Hace que el título ocupe ambas columnas */
+            text-align: center;
+            font-size: 2rem;
+            color: #0073e6;
+            margin-bottom: 20px;
+        }
+
+        .modal-contenido h3 {
+            font-size: 1.5rem;
+            color: #0073e6;
+            margin-top: 20px;
+        }
+
+        .modal-contenido p {
+            text-align: justify;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .cerrar {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .cerrar:hover {
+            color: black;
+        }
+
+        /* Pie de página */
+        footer {
+            background: #0073e6;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Portada -->
+    <header class="portada">
+        <h1>Revista Digital: Etapa 2 Área Familiar - Paso 5</h1>
+        <p>Explorando las dinámicas familiares contemporáneas</p>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="contenido">
+        <!-- Artículo 1: Problemática -->
+        <div class="articulo">
+            <h2>Identificación de la Problemática</h2>
+            <p>Descubre los principales desafíos que enfrenta la familia López.</p>
+            <button onclick="openModal('modalProblematica')">Leer más</button>
+        </div>
+
+        <!-- Artículo 2: Soluciones -->
+        <div class="articulo">
+            <h2>Propuestas de Solución</h2>
+            <p>Conoce las estrategias para mejorar la convivencia familiar.</p>
+            <button onclick="openModal('modalSoluciones')">Leer más</button>
+        </div>
+
+        <!-- Artículo 3: Respuestas -->
+        <div class="articulo">
+            <h2>Respuestas a los Interrogantes</h2>
+            <p>Responde a las preguntas clave sobre dinámicas familiares.</p>
+            <button onclick="openModal('modalRespuestas')">Leer más</button>
+        </div>
+    </main>
+
+    <!-- Modales -->
+    <!-- Modal de Problemática -->
+    <div id="modalProblematica" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="closeModal('modalProblematica')">&times;</span>
+            <h2>Identificación de la Problemática</h2>
+            <p>La familia López representa una circunstancia a la que se enfrentan numerosas familias en la actualidad, la escasez de tiempo para compartir debido a las demandas laborales y educativas. Según <strong>Cudris-Torres et al. (2020)</strong>, la cultura contemporánea ha propiciado que las familias den mayor importancia al trabajo y a las obligaciones externas en lugar de la coexistencia, lo cual impacta en la estabilidad emocional y la comunicación entre sus integrantes.</p>
+            <p>Los papás de Laura y Carlos pasan casi todo el día en el trabajo, y eso hace que casi no compartan con sus hijos, lo que no solo hace que haya menos comunicación, sino que también crea una distancia emocional entre ellos. En el caso de Sofía y Diego, ellos tienen muchas actividades después del colegio, lo que reduce todavía más las oportunidades de estar juntos como familia. Como resultado, la familia no comparte tanto tiempo y eso puede afectar la relación entre ellos, generando problemas o malentendidos. Según <strong>Agudelo, Grajales y Ramírez López (2023)</strong>, la interacción dentro de la familia es clave para el bienestar emocional de los niños porque les ayuda a sentirse parte de un grupo y les da identidad. Cuando esto no pasa, los niños pueden sentirse solos o incluso estresados, lo que puede afectar su desarrollo tanto social como emocional.</p>
+            <p>Por otro lado, no tener una buena organización del tiempo diario hace que sea más difícil que las familias tengan rutinas que ayuden a equilibrar el trabajo con la vida personal. <strong>Cudris-Torres et al. (2020)</strong> dicen que cuando no se distribuye bien el tiempo en familia, los momentos de calidad se reducen y eso afecta las relaciones entre sus miembros. En la familia López, por ejemplo, no tienen una rutina clara para compartir, así que cada quien termina enfocándose más en sus propias cosas que en pasar tiempo juntos. Esto hace que los niños puedan sentirse ignorados o que los papás tengan remordimiento por no poder estar más presentes en su vida. A la larga, esto podría generar problemas de confianza entre ellos, más distanciamiento emocional e incluso dificultades para comunicarse bien.</p>
+            <p>Otro problema es la tecnología, que también influye en cómo se relacionan en casa. <strong>Ahedo, Caro y Arteaga-Martínez (2022)</strong> explican que cuando se usa demasiado el celular o las pantallas en general, se pierde la oportunidad de convivir en familia porque se reemplazan los momentos de conversación. En la familia López, cada uno está metido en su propio mundo con los dispositivos, lo que hace que haya menos conexión emocional entre ellos. En vez de compartir tiempo juntos y fortalecer su relación, se acostumbran a estar cada quien en lo suyo, lo que aumenta el aislamiento. Si esto sigue así, la familia podría seguir alejándose más, afectando no solo la relación entre ellos sino también el bienestar emocional de todos.</p>
+        </div>
+    </div>
+
+    <!-- Modal de Soluciones -->
+    <div id="modalSoluciones" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="closeModal('modalSoluciones')">&times;</span>
+            <h2>Propuestas de Solución</h2>
+            <p>Para que la familia López pueda llevarse mejor y fortalecer su convivencia, hay dos estrategias clave que podrían ayudar: organizar mejor su rutina diaria y mejorar la comunicación y el manejo del tiempo.</p>
+            <p>La primera idea es crear horarios específicos para pasar tiempo juntos sin distracciones. <strong>Ahedo, Caro y Arteaga-Martínez (2022)</strong> dicen que tener una agenda familiar bien estructurada ayuda a reducir el estrés y permite que todos se organicen mejor, lo que hace más fácil que participen en actividades recreativas y charlas importantes. En este caso, se recomienda que la familia López tenga horarios fijos para comer juntos sin celulares, hacer actividades en familia los fines de semana y planear salidas de vez en cuando. Esto no solo los ayudará a fortalecer su relación, sino que también hará que se sientan más unidos.</p>
+            <p>La otra estrategia es mejorar la comunicación y la organización del tiempo usando herramientas digitales y técnicas de diálogo en familia. <strong>Cudris-Torres et al. (2020)</strong> mencionan que los calendarios compartidos pueden ser útiles para que cada quien anote sus actividades y compromisos, lo que facilita que todos sepan cuándo pueden pasar tiempo juntos. También sería bueno que tuvieran reuniones familiares cada semana para hablar de sus preocupaciones, expectativas o emociones sin interrupciones. Si logran aplicar estas prácticas, la familia López podrá mejorar su convivencia, reforzar sus lazos y encontrar un equilibrio entre el trabajo, el estudio y el tiempo juntos en casa.</p>
+        </div>
+    </div>
+
+    <!-- Modal de Respuestas -->
+    <div id="modalRespuestas" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="closeModal('modalRespuestas')">&times;</span>
+            <h2>Respuestas a los Interrogantes</h2>
+            <h3>¿Cómo comprendo el concepto de familia?</h3>
+            <p>La familia es una unidad fundamental en la sociedad que no solo se define por los lazos de sangre, sino también por el apoyo emocional y social que brinda. Según <strong>Cudris-Torres et al. (2020)</strong>, la familia es un espacio de aprendizaje donde se adquieren valores, habilidades y formas de afrontar la vida. Su estructura puede variar, pero su función principal es proporcionar estabilidad y bienestar a sus miembros.</p>
+            <h3>¿Qué caracteriza a las familias según las lecturas?</h3>
+            <p>Las familias han evolucionado significativamente en términos de estructura y roles. <strong>Agudelo, Grajales y Ramírez López (2023)</strong> explican que las familias actuales pueden ser nucleares, monoparentales, extendidas o reconstituidas, cada una con dinámicas particulares. Sin embargo, todas cumplen la función de brindar afecto, educación y apoyo emocional a sus integrantes, lo que influye directamente en su desarrollo personal.</p>
+            <h3>¿Qué influencia tiene el entorno familiar en los hábitos y plan de vida de una persona?</h3>
+            <p>El entorno familiar define en gran medida los valores, costumbres y expectativas de vida de un individuo. <strong>Cudris-Torres et al. (2020)</strong> afirman que una familia que fomente hábitos saludables y una comunicación efectiva contribuye al éxito personal y profesional de sus integrantes. Por el contrario, un ambiente familiar inestable puede generar inseguridades y dificultades en la toma de decisiones.</p>
+            <h3>¿Cómo han evolucionado las dinámicas familiares en la contemporaneidad?</h3>
+            <p>Las dinámicas familiares han cambiado debido a factores como el avance tecnológico y los nuevos modelos de trabajo. <strong>Agudelo, Grajales y Ramírez López (2023)</strong> mencionan que la tecnología ha permitido mantener la conexión entre familiares a distancia, pero también ha reducido el tiempo de interacción presencial. Además, las responsabilidades laborales han generado una redistribución de roles dentro del hogar.</p>
+            <h3>¿Cómo fortalecer el vínculo familiar y crear una red de apoyo mutuo?</h3>
+            <p>Para fortalecer el vínculo familiar, es esencial fomentar la comunicación, el respeto y la empatía. <strong>Ahedo, Caro y Arteaga-Martínez (2022)</strong> sugieren la realización de actividades conjuntas, como compartir comidas sin dispositivos electrónicos y realizar ejercicios de resolución de conflictos. La clave está en generar espacios donde cada miembro se sienta valorado y escuchado.</p>
+            <h3>¿Qué prácticas cotidianas fortalecen las relaciones familiares?</h3>
+            <p>Las relaciones familiares se fortalecen mediante la constancia en la convivencia, el diálogo y la equidad en la distribución de responsabilidades. <strong>Cudris-Torres et al. (2020)</strong> enfatizan la importancia de compartir momentos sin distracciones tecnológicas, promover la expresión de emociones y apoyar a cada miembro en sus desafíos personales.</p>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2025 Revista Digital - Estudiante: Jeffrey Bustamante . Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script para manejar modales -->
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "flex";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
