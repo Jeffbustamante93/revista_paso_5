@@ -7,32 +7,44 @@
     <style>
         /* Estilos generales */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #f4f4f4;
             color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
 
         /* Portada */
         .portada {
-            background: linear-gradient(135deg, #0073e6, #00bfff);
+            background: linear-gradient(135deg, #005a9e, #0078d4);
             color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .portada h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin: 0;
             animation: fadeIn 2s ease-in-out;
+            font-weight: 600;
         }
 
         .portada p {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             margin: 10px 0 0;
             animation: fadeIn 3s ease-in-out;
+            font-weight: 300;
         }
 
         @keyframes fadeIn {
@@ -46,13 +58,14 @@
             flex-wrap: wrap;
             justify-content: center;
             padding: 20px;
+            gap: 20px;
         }
 
         .articulo {
             background: white;
             margin: 15px;
-            padding: 20px;
-            border-radius: 10px;
+            padding: 25px;
+            border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 300px;
             text-align: center;
@@ -65,28 +78,33 @@
         }
 
         .articulo h2 {
-            font-size: 1.5rem;
-            color: #0073e6;
-            margin-bottom: 10px;
+            font-size: 1.75rem;
+            color: #0078d4;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
         .articulo p {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: #555;
+            margin-bottom: 20px;
         }
 
         .articulo button {
-            background-color: #ffcc00;
+            background-color: #ffb900;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 24px;
             font-size: 1rem;
             cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            border-radius: 6px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: 600;
+            color: #333;
         }
 
         .articulo button:hover {
-            background-color: #e6b800;
+            background-color: #e6a200;
+            transform: scale(1.05);
         }
 
         /* Modales */
@@ -105,37 +123,40 @@
 
         .modal-contenido {
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 80%;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
             max-width: 800px;
             position: relative;
             animation: slideIn 0.5s ease-in-out;
             max-height: 80vh;
             overflow-y: auto;
-            column-count: 2; /* Añadido: Divide el contenido en dos columnas */
-            column-gap: 40px; /* Añadido: Espacio entre columnas */
-            line-height: 1.6; /* Añadido: Mejora la legibilidad */
+            column-count: 2;
+            column-gap: 40px;
+            line-height: 1.6;
         }
 
         .modal-contenido h2 {
-            column-span: all; /* Añadido: Hace que el título ocupe ambas columnas */
+            column-span: all;
             text-align: center;
-            font-size: 2rem;
-            color: #0073e6;
+            font-size: 2.5rem;
+            color: #0078d4;
             margin-bottom: 20px;
+            font-weight: 600;
         }
 
         .modal-contenido h3 {
-            font-size: 1.5rem;
-            color: #0073e6;
+            font-size: 1.75rem;
+            color: #0078d4;
             margin-top: 20px;
+            font-weight: 600;
         }
 
         .modal-contenido p {
             text-align: justify;
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: #333;
+            margin-bottom: 15px;
         }
 
         @keyframes slideIn {
@@ -146,22 +167,84 @@
         .cerrar {
             color: #aaa;
             float: right;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
             cursor: pointer;
+            transition: color 0.3s;
         }
 
         .cerrar:hover {
-            color: black;
+            color: #333;
         }
 
         /* Pie de página */
         footer {
-            background: #0073e6;
+            background: #0078d4;
             color: white;
             text-align: center;
-            padding: 10px;
-            margin-top: 200px;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 1rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .portada h1 {
+                font-size: 2.5rem;
+            }
+
+            .portada p {
+                font-size: 1.2rem;
+            }
+
+            .articulo {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .modal-contenido {
+                column-count: 1;
+                padding: 20px;
+            }
+
+            .modal-contenido h2 {
+                font-size: 2rem;
+            }
+
+            .modal-contenido h3 {
+                font-size: 1.5rem;
+            }
+
+            .modal-contenido p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portada h1 {
+                font-size: 2rem;
+            }
+
+            .portada p {
+                font-size: 1rem;
+            }
+
+            .articulo h2 {
+                font-size: 1.5rem;
+            }
+
+            .articulo p {
+                font-size: 1rem;
+            }
+
+            .articulo button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -242,7 +325,7 @@
 
     <!-- Pie de página -->
     <footer>
-        <p>&copy; 2025 Revista Digital - Estudiante: Jeffrey Bustamante . Todos los derechos reservados.</p>
+        <p>&copy; 2025 Revista Digital - Estudiante: Jeffrey Bustamante. Todos los derechos reservados.</p>
     </footer>
 
     <!-- Script para manejar modales -->
